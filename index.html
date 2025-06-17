@@ -60,6 +60,17 @@
       width: 100%;
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+    .gallery img:hover {
+      transform: scale(1.06) rotate(-2deg);
+      box-shadow: 0 8px 16px rgba(75,0,130,0.15);
+    }
+    .gallery figcaption {
+      text-align: center;
+      font-size: 0.95rem;
+      margin-top: 0.3rem;
+      color: #555;
     }
     .dark-mode {
       background: #1e1e1e;
@@ -100,20 +111,50 @@
       border-radius: 4px;
       cursor: pointer;
     }
+    /* Decorative shapes */
+    .decorative-shape {
+      position: absolute;
+      z-index: 0;
+      opacity: 0.12;
+    }
+    .circle {
+      width: 130px;
+      height: 130px;
+      background: #4B0082;
+      border-radius: 50%;
+      top: 18vh;
+      left: -70px;
+    }
+    .triangle {
+      width: 0;
+      height: 0;
+      border-left: 80px solid transparent;
+      border-right: 80px solid transparent;
+      border-bottom: 140px solid #ffb347;
+      top: 80vh;
+      right: -60px;
+    }
+    @media (max-width: 600px) {
+      .toggle-button { top: 0.5rem; right: 0.5rem; }
+      .gallery { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
+  <div class="decorative-shape circle"></div>
+  <div class="decorative-shape triangle"></div>
   <button class="toggle-button" onclick="toggleDarkMode()">Toggle Dark Mode</button>
 
   <header>
     <h1>Shikha Patel</h1>
     <p>Business Strategist | Creative Entrepreneur | Passionate Traveler</p>
+    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Shikha Patel Portrait" style="border-radius:50%;width:100px;height:100px;margin-top:1rem;box-shadow:0 2px 12px rgba(75,0,130,0.10);">
   </header>
 
   <section>
     <h2>About Me</h2>
     <p>
-      I’m <span class="highlight">Shikha Patel</span>, a Business Development Manager with over 5 years of experience in strategic growth, sales, and relationship management. I thrive where innovation meets purpose, and I bring a human-centered approach to every project.
+      I’m <span class="highlight">Shikha Patel</span>, a Business Development Manager with over 5 years of experience in strategic growth, sales, and relationship management. I thrive where innovation meets people, and love turning ideas into impactful results.
     </p>
   </section>
 
@@ -131,7 +172,7 @@
   <section>
     <h2>My Creative Business</h2>
     <p>
-      I run a small but passionate venture in <span class="highlight">Design & Décor</span>, helping clients shape spaces that reflect their stories. From cozy interiors to event styling, I believe good design elevates experience.
+      I run a small but passionate venture in <span class="highlight">Design & Décor</span>, helping clients shape spaces that reflect their stories. From cozy interiors to event styling, I believe every detail matters.
     </p>
   </section>
 
@@ -140,14 +181,35 @@
     <p>
       Traveling is my therapy. I capture moments through videos and write blogs to preserve the essence of each place I visit. Explore my latest travel stories on Instagram and blog.
     </p>
+    <div style="text-align:center;margin-top:1.5rem;">
+      <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80" alt="Lisbon Street" style="max-width:330px;width:90%;border-radius:10px;box-shadow:0 4px 12px rgba(255,179,71,0.25);margin-bottom:0.5rem;">
+      <div style="font-size:0.92rem;color:#666;">Streets of Lisbon – my favorite wander city!</div>
+    </div>
   </section>
 
   <section>
     <h2>Gallery</h2>
     <div class="gallery">
-      <img src="https://source.unsplash.com/featured/?interior" alt="Decor Project">
-      <img src="https://source.unsplash.com/featured/?travel" alt="Travel Moment">
-      <img src="https://source.unsplash.com/featured/?nature" alt="Nature Shot">
+      <figure>
+        <img src="https://source.unsplash.com/featured/?interior" alt="Decor Project">
+        <figcaption>Latest Decor Project</figcaption>
+      </figure>
+      <figure>
+        <img src="https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg?auto=compress&w=600&h=400&fit=crop" alt="Travel Moment">
+        <figcaption>Mountain Escape</figcaption>
+      </figure>
+      <figure>
+        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Nature Shot">
+        <figcaption>Serene Lake in the Alps</figcaption>
+      </figure>
+      <figure>
+        <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=600&q=80" alt="Event Styling">
+        <figcaption>Chic Event Styling</figcaption>
+      </figure>
+      <figure>
+        <img src="https://images.pexels.com/photos/2101187/pexels-photo-2101187.jpeg?auto=compress&w=600&h=400&fit=crop" alt="Food Drive Volunteering">
+        <figcaption>Volunteering: Food Drive</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -156,11 +218,15 @@
     <p>
       As a volunteer with <strong>Robin Hood Army</strong>, I’ve contributed to food drives, educational sessions, and spent meaningful time at old age homes. Giving back keeps me grounded.
     </p>
+    <div style="text-align:center;margin-top:1rem;">
+      <img src="https://images.unsplash.com/photo-1500631195312-e3a9a5819f90?auto=format&fit=crop&w=400&q=80" alt="Volunteering" style="max-width:220px;width:90%;border-radius:10px;box-shadow:0 4px 12px rgba(75,0,130,0.11);">
+      <div style="font-size:0.92rem;color:#666;">Robin Hood Army: Spreading smiles</div>
+    </div>
   </section>
 
   <section class="blog">
     <h2>Latest Blog Snippet</h2>
-    <p><em>"Wandering through the streets of Lisbon, I stumbled upon a quiet café filled with the scent of fresh pastries and warm people. That’s the magic of travel—every turn is a new story."</em></p>
+    <p><em>"Wandering through the streets of Lisbon, I stumbled upon a quiet café filled with the scent of fresh pastries and warm people. That’s the magic of travel—every turn is a new story waiting to be told."</em></p>
     <p><a href="#">Read more...</a></p>
   </section>
 
